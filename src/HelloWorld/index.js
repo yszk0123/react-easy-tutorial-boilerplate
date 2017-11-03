@@ -1,5 +1,6 @@
 import React from 'react';
+import styles from './index.scss';
 
 export default function HelloWorld({ name }) {
-  return <div>Hello, {name}!</div>;
+  return <div className={styles.HelloWorld}>Hello, {name}!</div>;
 }
