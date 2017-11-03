@@ -16,7 +16,7 @@
     "@storybook/addon-links": "^3.2.14"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 9001",
     "build-storybook": "build-storybook"
   }
 }
