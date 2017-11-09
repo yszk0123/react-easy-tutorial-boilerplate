@@ -1,5 +1,4 @@
 #!/bin/bash -e
-targetDir=src
 componentName="$1"
 scriptDir="$(cd "$(dirname "$0")" && pwd)"
 
@@ -8,7 +7,11 @@ if [ -z "$componentName" ]; then
   exit 1
 fi
 
-cp -R "$scriptDir/templates/Component" "$targetDir/$componentName"
+for targetDir in src stories; do
+  cp -R \
+    "$scriptDir/templates/$targetDir/components/Component" \
+    "$targetDir/components/$componentName"
 
-find "$targetDir/$componentName" -type f -print0 | \
-  xargs -0 sed -i '' "s/{{componentName}}/$componentName/g"
+  find "$targetDir/components/$componentName" -type f -print0 | \
+    xargs -0 sed -i '' "s/{{componentName}}/$componentName/g"
+done
